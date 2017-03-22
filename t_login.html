@@ -1,0 +1,79 @@
+<html>
+<head>
+<style>
+.button {
+    background-color: #008CBA; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+	width:200px;
+}
+
+.button1:hover {
+    background-color: #008CBA;
+    color: white;
+	width:205px;
+}
+.border{
+border:3px solid black;
+border-radius:20px;
+-moz-border-radius:20px;
+padding:10px;
+height:300px; 
+width:400px;
+}
+</style>
+<script>
+
+function validate(){
+	var faculty_id=document.getElementById('faculty_id').value;  
+	var pwd=document.getElementById('pwd').value;
+	var http=new XMLHttpRequest;
+	http.open("POST","t_signup.php?faculty_id="+faculty_id+"&pwd="+pwd,"true");
+	http.send();
+	http.onreadystatechange=function(){
+		if(http.readyState==4){
+			var res=http.responseText;
+				if(res=="You are logged in!"){
+				document.getElementById('2').innerHTML="<input type='submit' class='button button1' value='FACULTY LOG IN'>";}
+				else{
+				document.getElementById('2').innerHTML="<p>You are not allowed to log in! Please register!!!</p><a href='t_register.html'>Register here</a>";}
+		}
+	}
+}
+</script>
+<body background="back1.jpg">
+<center><img src="raitlogo.jpg" style="width:100 px; height:100px;">
+<h1><center><b>RAMRAO ADIK INSTITUTE OF TECHNOLOGY</h1></b></center>
+<h1><center><b>TEST MARKS ANALYSIS</h1></b></center>
+<center><button class="button button1"><a href="home.html" style="text-decoration:none;"><b>HOME</b></a></button>&nbsp;&nbsp;&nbsp;
+<button class="button button1"><a href="t_adminlogin.html" style="text-decoration:none;"><b>ADMIN LOGIN</b></a></button>&nbsp;&nbsp;&nbsp;
+<button class="button button1"><a href="t_register.html" style="text-decoration:none;"><b>REGISTER</b></a></button>&nbsp;&nbsp;&nbsp;
+<button class="button button1"><a href="t_login.html" style="text-decoration:none;"><b>FACULTY LOGIN</b></a></button>&nbsp;&nbsp;&nbsp;
+<button class="button button1"><a href="studentlogin.html" style="text-decoration:none;"><b>STUDENT LOGIN</b></a></button>&nbsp;&nbsp;&nbsp;
+<button class="button button1"><a href="about.html" style="text-decoration:none;"><b>ABOUT</b></a></button><br><br>
+<div class="border"><br>
+<form  method="post" action="t_batchform.php">
+<h3 style='text-align:center;'>FACULTY LOGIN</H3><b>
+&nbsp;&nbsp;&nbsp;&nbsp;USERNAME :<input type="text" name="faculty_id" id="faculty_id"><br><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;PASSWORD :<input type="password" name="pwd" id="pwd" onblur="validate()"><br><br><br></b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div id='2' style='text-align:center'></div>
+</div>
+</form>
+</body>
+</html>

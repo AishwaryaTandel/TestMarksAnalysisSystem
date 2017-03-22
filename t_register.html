@@ -1,0 +1,93 @@
+<html>
+<head>
+<style>
+.button {
+    background-color: #008CBA; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+	width:200px;
+}
+
+.button1:hover {
+    background-color: #008CBA;
+    color: white;
+	width:205px;
+}
+.border{
+border:3px solid black;
+border-radius:20px;
+-moz-border-radius:20px;
+padding:10px;
+height:400px; 
+width:500px;
+}
+</style>
+<script>
+function validate_email(email){
+var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+ if (!reg.test(email)){
+	alert("Email is invalid!!!"); }
+ }
+function validate_pass(nm){
+var no=nm.length;
+if(no<9){
+	alert("Password length should be greater than 8!");
+	}
+}
+function validate_cpass(pwd,cpwd){
+//var pwd=document.getElementById('pwd');
+//var cpwd=document.getElementById('cpwd');
+if(pwd!=cpwd){
+	alert("Both passwords are not matching!");
+	}
+}
+function validate_num(num){
+var no=num.length;
+if(no!=10){
+	alert("Contact no. should have 10 digits!");
+	}
+}
+</script>
+</head>
+<body background="back1.jpg">
+<center><img src="raitlogo.jpg" style="width:100 px; height:100px;">
+<h1><center><b>RAMRAO ADIK INSTITUTE OF TECHNOLOGY</h1></b></center>
+<h1><center><b>TEST MARKS ANALYSIS</h1></b></center>
+<center><button class="button button1"><a href="home.html" style="text-decoration:none;"><b>HOME</b></a></button>&nbsp;&nbsp;&nbsp;
+<button class="button button1"><a href="t_adminlogin.html" style="text-decoration:none;"><b>ADMIN LOGIN</b></a></button>&nbsp;&nbsp;&nbsp;
+<button class="button button1"><a href="t_register.html" style="text-decoration:none;"><b>REGISTER</b></a></button>&nbsp;&nbsp;&nbsp;
+<button class="button button1"><a href="t_login.html" style="text-decoration:none;"><b>FACULTY LOGIN</b></a></button>&nbsp;&nbsp;&nbsp;
+<button class="button button1"><a href="studentlogin.html" style="text-decoration:none;"><b>STUDENT LOGIN</b></a></button>&nbsp;&nbsp;&nbsp;
+<button class="button button1"><a href="about.html" style="text-decoration:none;"><b>ABOUT</b></a></button><br><br>
+<div class="border"><br>
+<table>
+<form action="t_faculty_reg.php" method="post">
+<tr><td>FACULTY NAME :</td><td><input type="text" name="faculty_name" id="faculty_name"></td></tr>
+<tr><td>FACULTY ID :</td><td><input type="text" name="faculty_id" id="faculty_id"></td></tr>
+<tr><td>EMAIL ID :</td><td><input type="email" name="email" id="email" onblur="validate_email(this.value)"></td></tr>
+<tr><td>CONTACT NO :</td><td><input type="number" name="num" id="num" onblur="validate_num(this.value)"></td></tr>
+<tr><td>DATE OF BIRTH :</td><td><input type="date" name="dob" id="dob"></td></tr>
+<tr><td>PASSWORD :</td><td><input type="password" name="pwd" id="pwd" onblur="validate_pass(this.value)"></td></tr>
+<tr><td>CONFIRM PASSWORD :</td><td><input type="password" name="cpwd" id="cpwd" onblur="validate_cpass(pwd.value,this.value)"></td></tr>
+</table>
+<br><br>
+<input type="submit" class="button button1" value="register">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="reset" class="button button1"></div>
+</form>
+</body>
+</html>
